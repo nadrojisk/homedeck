@@ -5,6 +5,6 @@ FROM nginx:1.31-alpine@sha256:df221db836e1754089190208cee7eeda94f233197056426eda
 COPY web/nginx.conf /etc/nginx/conf.d/default.conf
 COPY web/homedeck.html /usr/share/nginx/html/index.html
 
-FROM python:3.12-alpine@sha256:1b668429b3511ab407d8e00648891631b0b1a4d7e15e3ca70f38ab5b91ad4ab4 AS collector
+FROM python:3.15-alpine@sha256:0f9552bb28711333da16915ec146f5e6bb44a7fdac9ced15dc17c2e0206346dd AS collector
 COPY collector/homedeck_collector.py /app/homedeck_collector.py
 CMD ["python", "-u", "/app/homedeck_collector.py"]
